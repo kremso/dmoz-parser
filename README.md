@@ -18,10 +18,16 @@ This parser makes the assumption is the last entity in each dmoz page is _topic_
 
 This assumption is strictly checked, and processing will abort if it is violated.
 
-
 The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should _gunzip_ it into this directory.
 
 The RDF is pretty large, over 2G unpacked and parsing it takes some time, so there is a progress indicator.
+
+Warnings
+--------
+
+This parser does not check for links between topics in the hierarchy, or any sophisticated parsing of the hierarchy.
+
+The same URL might appear in multiple locations in the hierarchy.
 
 Usage
 -----
