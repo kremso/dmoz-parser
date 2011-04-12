@@ -7,7 +7,7 @@ Dmoz Parser
 
 This is a really simple python implementation of the Dmoz RDF parser. It does not try to be smart and process the parsed XML for you, you have to provide a handler implementation where YOU decide what to do with the data (store it in file, database, print, etc.).
 
-This parser makes the assumption is the last entity in each dmoz page:
+This parser makes the assumption is the last entity in each dmoz page is _topic_:
 
      <ExternalPage about="http://www.awn.com/">
        <d:Title>Animation World Network</d:Title>

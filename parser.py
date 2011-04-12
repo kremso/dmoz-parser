@@ -33,6 +33,7 @@ class DmozHandler(handler.ContentHandler):
   def startElement(self, name, attrs):
     if name == 'ExternalPage':
       self._current_page = attrs['about']
+      self._current_content = {}
     elif name in ['d:Title', 'd:Description', 'priority', 'topic']:
       self._capture_content = True
       self._capture_content_type = name
