@@ -28,28 +28,33 @@ Instantiate the parser, provide the handler and run.
     #!/usr/bin/env python
     
     from parser import DmozParser
-    from handlers import CSVWriter
+    from handlers import JSONWriter
     
     parser = DmozParser()
-    parser.add_handler(CSVWriter('output.txt'))
+    parser.add_handler(JSONWriter('output.json'))
     parser.run()
 
-CSVWriter is the builtin handler which stores the results into a comma separated file.
+JSONWriter is the builtin handler which outputs the pages, one JSON object per line.
+(Note: This is different than saying that the entire file is a large JSON list.)
+
+Requirements
+------------
+
+[simplejson](http://pypi.python.org/pypi/simplejson/) is necessary for writing JSON output.
+
+Built-in handlers
+-----------------
+There are two builtin handlers so far - _JSONWriter_ and _CSVWriter_.
+_CSVWriter_ is buggy (see "handler.py" to understand why), and we recommend the _JSONWriter_.
 
 Handlers
 --------
 A handler must implement two methods:
 
-    def page(self, page, topic)
+    def page(self, page, content)
 
-this method will be called every time a new page is extracted from the RDF, argument _page_ will contain the URL of the page and _topic_ will contain the page category.
+this method will be called every time a new page is extracted from the RDF, argument _page_ will contain the URL of the page and _content_ will contain a dictionary of page content.
 
     def finish(self)
 
 The finish method will be called after the parsing is done. You may want to clean up here, close the files, etc.
-
-
-Built-in handlers
------------------
-There is only one builtin handler so far - _CSVWriter_ which stores the data in a CSV file.
-The CSV parser is buggy (see "handler.py" to understand why), and we recommend the _JSONWriter_.

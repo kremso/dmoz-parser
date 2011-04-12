@@ -39,7 +39,7 @@ class DmozHandler(handler.ContentHandler):
 
   def characters(self, content):
     if self._capture_content:
-      self._current_content[self._capture_content_type] = content.encode('utf-8')
+      self._current_content[self._capture_content_type] = content
 #      print self._capture_content_type, self._current_content[self._capture_content_type]
       if self._capture_content_type == "topic":
         # This makes the assumption that "topic" is the last entity in each dmoz page:
@@ -49,7 +49,7 @@ class DmozHandler(handler.ContentHandler):
         #     <priority>1</priority>
         #     <topic>Top/Arts/Animation</topic>
         #   </ExternalPage>
-          self._handler.page(self._current_page.encode('utf-8'), self._current_content)
+          self._handler.page(self._current_page, self._current_content)
       self._capture_content = False
 
   def endDocument(self):
