@@ -16,6 +16,8 @@ This parser makes the assumption is the last entity in each dmoz page is _topic_
        <topic>Top/Arts/Animation</topic>
      </ExternalPage>
 
+This assumption is strictly checked, and processing will abort if it is violated.
+
 
 The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should _gunzip_ it into this directory.
 
