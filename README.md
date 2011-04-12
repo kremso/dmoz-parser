@@ -17,7 +17,7 @@ This parser makes the assumption is the last entity in each dmoz page:
    </ExternalPage>
 
 
-The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should gunzip it into this directory.
+The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should _gunzip_ it into this directory.
 
 The RDF is pretty large, over 2G unpacked and parsing it takes some time, so there is a progress indicator.
 
@@ -52,3 +52,4 @@ The finish method will be called after the parsing is done. You may want to clea
 Built-in handlers
 -----------------
 There is only one builtin handler so far - _CSVWriter_ which stores the data in a CSV file.
+The CSV parser is buggy (see "handler.py" to understand why), and we recommend the _JSONWriter_.
