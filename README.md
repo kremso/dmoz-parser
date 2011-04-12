@@ -9,12 +9,12 @@ This is a really simple python implementation of the Dmoz RDF parser. It does no
 
 This parser makes the assumption is the last entity in each dmoz page:
 
-   <ExternalPage about="http://www.awn.com/">
-     <d:Title>Animation World Network</d:Title>
-     <d:Description>Provides information resources to the international animation community. Features include searchable database archives, monthly magazine, web animation guide, the Animation Village, discussion forums and other useful resources.</d:Description>
-     <priority>1</priority>
-     <topic>Top/Arts/Animation</topic>
-   </ExternalPage>
+     <ExternalPage about="http://www.awn.com/">
+       <d:Title>Animation World Network</d:Title>
+       <d:Description>Provides information resources to the international animation community. Features include searchable database archives, monthly magazine, web animation guide, the Animation Village, discussion forums and other useful resources.</d:Description>
+       <priority>1</priority>
+       <topic>Top/Arts/Animation</topic>
+     </ExternalPage>
 
 
 The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should _gunzip_ it into this directory.
