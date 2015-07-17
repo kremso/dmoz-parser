@@ -34,10 +34,10 @@ Usage
 Instantiate the parser, provide the handler and run.
 
     #!/usr/bin/env python
-    
+
     from parser import DmozParser
     from handlers import JSONWriter
-    
+
     parser = DmozParser()
     parser.add_handler(JSONWriter('output.json'))
     parser.run()
@@ -45,10 +45,10 @@ Instantiate the parser, provide the handler and run.
 JSONWriter is the builtin handler which outputs the pages, one JSON object per line.
 (Note: This is different than saying that the entire file is a large JSON list.)
 
-Requirements
-------------
-
-[simplejson](http://pypi.python.org/pypi/simplejson/) is necessary for writing JSON output.
+Terminal Usage
+--------------
+`python parser.py <content.rdf.u8 file path> <output file path>`
+example: `python parser.py ./data/content.rdf.u8 ./data/parsed.json`
 
 Built-in handlers
 -----------------
