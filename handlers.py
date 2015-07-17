@@ -1,10 +1,15 @@
 import copy
 import json
+import logging
+
+from smart_open import smart_open
+
+logger = logging.getLogger(__name__)
 
 
 class JSONWriter:
     def __init__(self, name):
-        self._file = open(name, 'w')
+        self._file = smart_open(name, 'w')
 
     def page(self, page, content):
         if page is not None and page != "":
@@ -13,7 +18,7 @@ class JSONWriter:
 
             self._file.write(json.dumps(newcontent) + "\n")
         else:
-            print "Skipping page %s, page attribute is missing" % page
+            logger.info("Skipping page %s, page attribute is missing", page)
 
     def finish(self):
         self._file.close()
@@ -22,7 +27,7 @@ class JSONWriter:
 class CSVWriter:
   # Note: The CSVWriter has several bugs and assumptions, as documented below.
     def __init__(self, name):
-        self._file = open(name, 'w')
+        self._file = smart_open(name, 'w')
 
     def page(self, page, content):
         if page is not None and page != "":
@@ -43,7 +48,7 @@ class CSVWriter:
 
             self._file.write("\n")
         else:
-            print "Skipping page %s, page attribute is missing" % page
+            logger.info("Skipping page %s, page attribute is missing", page)
 
     def finish(self):
         self._file.close()
