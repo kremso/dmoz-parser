@@ -18,7 +18,7 @@ This parser makes the assumption is the last entity in each dmoz page is _topic_
 
 This assumption is strictly checked, and processing will abort if it is violated.
 
-The RDF file needs to be downloaded and unpacked before running the parser. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site. You should _gunzip_ it into this directory.
+The RDF file needs to be downloaded, but cain stay packed. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site.
 
 The RDF is pretty large, over 2G unpacked and parsing it takes some time, so there is a progress indicator.
 
@@ -29,15 +29,19 @@ This parser does not check for links between topics in the hierarchy, or any sop
 
 The same URL might appear in multiple locations in the hierarchy.
 
+Dependencied
+------------
+You need to install dependencies from the requirements.txt file, for example by `pip install -r requirements.txt`
+
 Usage
 -----
 Instantiate the parser, provide the handler and run.
 
     #!/usr/bin/env python
-    
+
     from parser import DmozParser
     from handlers import JSONWriter
-    
+
     parser = DmozParser()
     parser.add_handler(JSONWriter('output.json'))
     parser.run()
@@ -45,10 +49,10 @@ Instantiate the parser, provide the handler and run.
 JSONWriter is the builtin handler which outputs the pages, one JSON object per line.
 (Note: This is different than saying that the entire file is a large JSON list.)
 
-Requirements
-------------
-
-[simplejson](http://pypi.python.org/pypi/simplejson/) is necessary for writing JSON output.
+Terminal Usage
+--------------
+`python parser.py <content.rdf.u8 file path> <output file path>`
+example: `python parser.py ./data/content.rdf.u8 ./data/parsed.json`
 
 Built-in handlers
 -----------------
