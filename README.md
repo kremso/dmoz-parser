@@ -18,7 +18,7 @@ This parser makes the assumption is the last entity in each dmoz page is _topic_
 
 This assumption is strictly checked, and processing will abort if it is violated.
 
-The RDF file needs to be downloaded, but cain stay packed. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site.
+The RDF file needs to be downloaded, but can stay packed. You can [download the RDF](http://rdf.dmoz.org/rdf/content.rdf.u8.gz) from Dmoz site.
 
 The RDF is pretty large, over 2G unpacked and parsing it takes some time, so there is a progress indicator.
 
