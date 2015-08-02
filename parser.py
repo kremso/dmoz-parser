@@ -102,6 +102,9 @@ if __name__ == '__main__':
         parser.add_handler(JSONWriter(output_path))
     elif file_extension == ".csv":
         parser.add_handler(CSVWriter(output_path))
+    else:
+        logger.info("Currently are only supported output files with extension .json or .csv")
+        sys.exit(1)
     parser.run()
 
     logger.info("finished running %s", program)
