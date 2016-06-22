@@ -96,7 +96,11 @@ if __name__ == '__main__':
 
     parser = DmozParser(input_path)
 
-    _, file_extension = os.path.splitext(output_path)
+    foo, file_extension = os.path.splitext(output_path)
+    ## we ask directly for a bzipped2 file
+    if file_extension == ".bz2":
+        _, file_extension = os.path.splitext(foo)
+    print file_extension
 
     if file_extension == ".json":
         parser.add_handler(JSONWriter(output_path))
